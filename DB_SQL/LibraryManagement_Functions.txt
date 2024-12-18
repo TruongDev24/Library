@@ -1,0 +1,42 @@
+
+1. Bảng `Users`: Quản lý tài khoản người dùng của hệ thống, bao gồm thông tin đăng nhập như tên người dùng, mật khẩu (đã mã hóa), vai trò (Admin hoặc Employee), và thời gian tạo tài khoản.
+
+2. Bảng `Employees`: Quản lý thông tin của nhân viên thư viện, bao gồm thông tin cá nhân như tên, email, điện thoại, và trạng thái làm việc (hoạt động hay không). Cũng liên kết với bảng `Users` để quản lý tài khoản của nhân viên.
+
+3. Bảng `LoginHistory`: Lưu trữ lịch sử đăng nhập của nhân viên, bao gồm thời gian đăng nhập, địa chỉ IP, thiết bị sử dụng, và trạng thái đăng nhập (thành công hay thất bại). Liên kết với bảng `Users`.
+
+4. Bảng `Readers`: Quản lý thông tin của độc giả, bao gồm tên, email, điện thoại, địa chỉ và thời gian tạo tài khoản. Mỗi độc giả có thể mượn sách, đặt sách trước, và nhận thông báo.
+
+5. Bảng `Categories`: Lưu trữ danh mục sách, giúp phân loại sách theo thể loại hoặc nhóm nội dung. Mỗi sách sẽ thuộc một danh mục cụ thể.
+
+6. Bảng `Authors`: Quản lý thông tin của các tác giả, bao gồm tên tác giả. Một sách có thể có nhiều tác giả, do đó bảng này kết hợp với bảng `BookAuthors` để tạo quan hệ nhiều-nhiều giữa sách và tác giả.
+
+7. Bảng `Publishers`: Quản lý thông tin nhà xuất bản, bao gồm tên nhà xuất bản, địa chỉ và số điện thoại.
+
+8. Bảng `Books`: Quản lý thông tin của các cuốn sách, bao gồm tên sách, nhà xuất bản, danh mục, và năm xuất bản. Liên kết với bảng `Publishers` và `Categories`.
+
+9. Bảng `BookAuthors`: Tạo mối quan hệ nhiều-nhiều giữa sách và tác giả. Một cuốn sách có thể có nhiều tác giả và một tác giả có thể viết nhiều cuốn sách.
+
+10. Bảng `BookCopies`: Quản lý các bản sao của một cuốn sách, bao gồm mã bản sao và trạng thái có sẵn (sẵn có hoặc không). Liên kết với bảng `Books`.
+
+11. Bảng `BookLocations`: Lưu trữ vị trí của mỗi cuốn sách trên kệ thư viện, bao gồm tên kệ, số hàng và số cột. Liên kết với bảng `Books`.
+
+12. Bảng `BorrowRecords`: Lưu trữ thông tin về các lần mượn sách của độc giả, bao gồm độc giả, ngày mượn, ngày trả dự kiến và trạng thái mượn (đang mượn, đã trả, quá hạn). Liên kết với bảng `Readers`.
+
+13. Bảng `ReturnRecords`: Lưu trữ thông tin về các lần trả sách của độc giả, bao gồm ngày trả sách và số tiền phạt nếu có. Liên kết với bảng `BorrowRecords`.
+
+14. Bảng `Renewals`: Lưu trữ lịch sử gia hạn mượn sách của độc giả, bao gồm thông tin về lần gia hạn và ngày trả mới. Liên kết với bảng `BorrowRecords`.
+
+15. Bảng `Notifications`: Quản lý các thông báo gửi đến độc giả, chẳng hạn như thông báo mượn sách quá hạn, các khuyến mãi, hoặc thông báo về sách mới. Liên kết với bảng `Readers`.
+
+16. Bảng `BookReservations`: Quản lý các yêu cầu đặt sách trước của độc giả, bao gồm trạng thái của yêu cầu (chờ xử lý, đã hoàn thành, hoặc bị hủy). Liên kết với bảng `Readers` và `Books`.
+
+17. Bảng `DigitalResources`: Quản lý tài liệu số, bao gồm e-books, tài liệu học trực tuyến, và các nguồn tài nguyên kỹ thuật số khác. Liên kết với bảng `Categories`.
+
+18. Bảng `BookRequests`: Lưu trữ yêu cầu nhập sách mới từ độc giả, bao gồm tên sách, tác giả và trạng thái yêu cầu (chờ xử lý, đã phê duyệt hoặc bị từ chối). Liên kết với bảng `Readers`.
+
+19. Bảng `LibraryBranches`: Quản lý thông tin các chi nhánh thư viện, bao gồm tên chi nhánh và địa chỉ của mỗi chi nhánh.
+
+20. Bảng `Suppliers`: Quản lý thông tin nhà cung cấp sách, bao gồm tên nhà cung cấp và thông tin liên hệ.
+
+21. Bảng `Transactions`: Quản lý các giao dịch tài chính liên quan đến độc giả, như tiền phạt, phí mượn sách, hoặc phí đăng ký thành viên. Liên kết với bảng `Readers`.
